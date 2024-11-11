@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseService } from '../base.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -6,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent  implements OnInit {
+  message=""
+  messages:any
+  constructor(private base:BaseService) { }  
+  ngOnInit() {
+    this.getMessages()
+  }
+  getMessages(){
+    this.base.getMessages().subscribe(
+      (data)=>this.messages=data
+    )
+  }
 
-  constructor() { }
-
-  ngOnInit() {}
-
+  addMessage(){
+    this.base.addMessage(this.message).subscribe(
+      ()=>this.getMessages()
+    )
+  }
 }
