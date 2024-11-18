@@ -1,4 +1,56 @@
+.container{
+    background-color: #ddd;
+    padding-bottom: 10px;
+   
+}
+.ion-padding{
+    position: relative;
+}
+div{
+    display: block;
+}
 .username{
-    background-color: antiquewhite;
+   font-size:.7rem
+}
+.message{
+    margin:10px 0;   
+}
+.message::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+.jobb{
     border-radius: 10px;
+    padding: 5px;
+    float:right;
+    width:90%;
+    background-color: rgb(80, 214, 169);
+}
+.bal{
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 5px;
+    float:left;
+    width:90%;
+}
+.vege{
+    margin: 10px;
+}
+.goDown{
+    position: sticky;
+    bottom: 2rem;
+    right:0;
+    transform: rotate(90deg);
+    background-color: rgba(127, 255, 212,.2);
+    padding: 10px;
+    border-radius: 50%;
+    display:none!important;
+}
+
+.latszik{
+    display:block!important;
+}
+.nemlatszik{
+    display:none!important;
 }

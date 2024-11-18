@@ -14,5 +14,6 @@ export class SendComponent  implements OnInit {
 
   addMessage(){
     this.create.emit(this.message)
+    this.message=""
   }
 }

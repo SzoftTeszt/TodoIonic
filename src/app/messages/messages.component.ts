@@ -27,6 +27,10 @@ export class MessagesComponent  implements OnInit {
   handleScrollStart() {
     console.log('scroll start');
   }
+  goDown(){
+    document.getElementsByClassName('vege')[0]
+    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+  }
 
   handleScroll(ev: CustomEvent<ScrollDetail>) {
     console.log('scroll', JSON.stringify(ev.detail));
