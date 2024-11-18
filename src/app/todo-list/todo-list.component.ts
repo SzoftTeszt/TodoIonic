@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { afterRender, Component, OnInit } from '@angular/core';
 import { BaseService } from '../base.service';
 
 @Component({
@@ -7,21 +7,28 @@ import { BaseService } from '../base.service';
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent  implements OnInit {
-  message=""
+  
   messages:any
-  constructor(private base:BaseService) { }  
+  constructor(private base:BaseService) {
+
+   }  
   ngOnInit() {
-    this.getMessages()
+    this.base.getFireMessages().valueChanges().subscribe(
+      (res)=>this.messages=res
+    )
   }
+
+
   getMessages(){
     this.base.getMessages().subscribe(
       (data)=>this.messages=data
     )
   }
 
-  addMessage(){
-    this.base.addMessage(this.message).subscribe(
-      ()=>this.getMessages()
-    )
+  addMessage(message:string){
+    this.base.addFireMessage(message)
+    // this.base.addMessage(this.message).subscribe(
+    //   ()=>this.getMessages()
+    // )
   }
 }

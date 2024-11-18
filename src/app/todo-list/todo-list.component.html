@@ -13,18 +13,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">   
-    <ion-list>
-      <ion-item>
-        <ion-input [(ngModel)]="message" label="Message"></ion-input>        
-      </ion-item>
-      <ion-item>
-        <ion-button (click)="addMessage()">Send</ion-button>         
-      </ion-item>
+  <app-messages [messages]="messages"></app-messages>
+  <app-send (create)="addMessage($event)"></app-send>
 
-    </ion-list>
-    <div>
-      {{messages|json}}
-    </div>
-  </div>
+
 </ion-content>

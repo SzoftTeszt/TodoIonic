@@ -1,0 +1,25 @@
+<ion-content
+  [scrollEvents]="true"
+  (ionScrollStart)="handleScrollStart()"
+  (ionScroll)="handleScroll($any($event))"
+  (ionScrollEnd)="handleScrollEnd()"
+  class="ion-padding"
+>
+<div class="container">   
+  <div *ngFor="let message of messages" class="row d-flex  my-1">
+    <div [ngClass]="message.name=='Attila'?'justify-content-end':'justify-content-start'" class="col d-flex">
+      <div class="row">
+        <div class="col username">{{message.name}}</div>
+      </div>
+      <div class="row">
+        <div class="col message">{{message.message}}</div>
+      </div>
+    </div>
+    <!-- <div [ngClass]="message.name=='Attila'?'justify-content-end':'justify-content-start'" class="col d-flex">{{message.message}}</div> -->
+  </div>
+  <!-- <div>
+    {{messages|json}}
+  </div> -->
+</div>
+<div class="vege"></div>
+</ion-content>
